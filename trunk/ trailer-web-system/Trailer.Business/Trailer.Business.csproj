@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B7657138-2E81-4F46-AE4E-34C5B682FFA1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Trailer.Business</RootNamespace>
+    <AssemblyName>Trailer.Business</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ClientesManager.cs" />
+    <Compile Include="BordadosManager.cs" />
+    <Compile Include="ArticulosManager.cs" />
+    <Compile Include="FacturasManager.cs" />
+    <Compile Include="RecibosManager.cs" />
+    <Compile Include="DesignacionesManager.cs" />
+    <Compile Include="DetallesSalidaManager.cs" />
+    <Compile Include="Moldes.cs" />
+    <Compile Include="CortesManager.cs" />
+    <Compile Include="PagosCreditoManager.cs" />
+    <Compile Include="ProductosManager.cs" />
+    <Compile Include="EntregasManager.cs" />
+    <Compile Include="ReportesManager.cs" />
+    <Compile Include="SalidasManager.cs" />
+    <Compile Include="Infrastruture\Tallas.cs" />
+    <Compile Include="OrdenesProduccionManager.cs" />
+    <Compile Include="IngresosManager.cs" />
+    <Compile Include="MateriasPrimaManager.cs" />
+    <Compile Include="ImagenesManager.cs" />
+    <Compile Include="EmpleadosManager.cs" />
+    <Compile Include="ProveedoresManager.cs" />
+    <Compile Include="ResponsablesManager.cs" />
+    <Compile Include="EmpresasManager.cs" />
+    <Compile Include="ListasManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Trailer.Common.Data\Trailer.Common.Data.csproj">
+      <Project>{4970B4DE-E707-432C-9667-A5E88E977CF1}</Project>
+      <Name>Trailer.Common.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Trailer.Common\Trailer.Common.csproj">
+      <Project>{70F9C23E-501D-41E9-8354-D5DEE8C899F3}</Project>
+      <Name>Trailer.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Trailer.Model\Trailer.Model.csproj">
+      <Project>{7AB3364E-0354-48CD-A3D5-2DB474BB7A3F}</Project>
+      <Name>Trailer.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

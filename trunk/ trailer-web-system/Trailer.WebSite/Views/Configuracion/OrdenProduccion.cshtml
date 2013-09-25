@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "Index Orden Produccion";
+}
+<script type="text/javascript">
+    Ext.Loader.setConfig({ enabled: true });
+    Ext.Loader.setPath('App', '../App');
+    Ext.require([
+    'App.*'
+   ]);
+//    Ext.Loader.setPath('Ext.ux', '../../Scripts/extjs/examples/ux');
+//    Ext.require([
+//    'Ext.grid.*',
+//    'Ext.data.*',
+//    'Ext.ux.RowExpander'
+//]);
+    Ext.onReady(function () {
+        Ext.QuickTips.init();
+        var principal = Ext.create("App.OrdenesProduccion.View.Principal");
+
+        var gvport = Ext.create("App.Utils.MainPanel", {
+            defaults: { autoScroll: true },
+            items: [principal]
+            //            //            grid, form
+            //        ]
+            //    items: item
+        });
+        function hola() {
+            alert('asdasda');
+        }
+    });
+</script>

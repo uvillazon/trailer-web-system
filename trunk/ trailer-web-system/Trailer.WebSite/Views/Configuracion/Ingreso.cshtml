@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "Index Ingresos";
+}
+<script type="text/javascript">
+    Ext.Loader.setConfig({ enabled: true });
+    Ext.Loader.setPath('App', '../App');
+    Ext.require([
+    'App.*'
+   ]);
+    Ext.onReady(function () {
+        Ext.QuickTips.init();
+        var principaIngreso = Ext.create("App.Ingresos.View.Principal");
+        
+        var gvport = Ext.create("App.Utils.MainPanel", {
+            defaults: { autoScroll: true },
+            items: [principaIngreso]
+            //            //            grid, form
+            //        ]
+            //    items: item
+        });
+        function hola() {
+            alert('asdasda');
+        }
+    });
+</script>

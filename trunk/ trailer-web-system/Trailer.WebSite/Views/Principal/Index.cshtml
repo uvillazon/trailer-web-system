@@ -1,0 +1,251 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+<script type="text/javascript">
+
+    Ext.Loader.setConfig({ enabled: true });
+    Ext.Loader.setPath('App', 'App');
+    Ext.require([
+    'App.*'
+   ]);
+    Ext.QuickTips.init();
+    var c_piehtml = '<font color="black"><h2  style="font-size:12px;height:14px">Copyright &copy; Trailer Group 2013 </h2></font>';
+    var c_title = '<font color="black"><h2  style="font-size:12px;height:14px">Usuario : @User.Identity.Name.ToString().Replace(@"NTELFEC\", "")  </h2></font>'
+    var bbar_pie = new Ext.Toolbar({
+        id: 'basic-statusbar',
+        iconCls:'an-icon',
+        statusAlign: 'right',
+        items: [
+            {
+                iconCls         : 'clock',
+                id              : 'tbFrmeWorkFecha',
+                text            : Ext.Date.format(new Date(), 'd/n/Y'),
+                
+            },'-',{
+                id              : 'clock',
+                text            : Ext.Date.format(new Date(), 'g:i:s A')
+                    },
+                    { xtype: 'label',
+                        width: 200,
+                       
+                        autoHeight:true,
+                        html: c_piehtml,
+                        border: false
+
+                    }
+            ]
+    
+        });
+       
+        var panel_pie = new Ext.Panel({
+            region: 'south',
+            border: true,
+            margins: '0 0 1 0',
+            split: false,
+            
+            bbar: bbar_pie
+
+        });
+     var store_tree = Ext.create('Ext.data.TreeStore', {
+        proxy: {
+            type: 'ajax',
+            url: 'JsonInventario.js'
+        },
+        sorters: [{
+            property: 'leaf',
+            direction: 'ASC'
+        }, {
+            property: 'text',
+            direction: 'ASC'
+        }]
+    });
+    var tree_equipos = new Ext.tree.TreePanel({
+        region: 'west',
+        collapsible: true,
+        split:true,
+        title: 'Inventarios',
+        lines: false,
+        shadow: true,
+        singleExpand: false,
+        width: 250,
+        autoScroll: true,
+        animate: true,
+        containerScroll: true,
+        rootVisible: false,
+        store: store_tree,
+        listeners: {
+
+            itemclick: function (view, rec, item, index, e) {
+                if(rec.get('iconCls')=="application_side_expand"){
+                    mostrarTab(rec.get('url'), rec.get('text'), rec);
+                }
+//                mostrarTab(rec.get('url'), rec.get('text'), rec);
+
+            }
+
+        }
+
+
+    });
+    
+    
+    
+    var panel_centro = new Ext.TabPanel({
+        id: 'tabs',
+        xtype: 'form',
+        activeItem: 0,
+        region:'center',
+        margins: '1 0 0 0',
+        autoHeigth:true,
+        enableTabScroll:true,
+    
+        defaults: {autoScroll:true,layout:'fit'},
+        items: [{
+            title: 'Bienvenido al sistema'
+        }]
+
+        
+    });
+    
+
+    var principal=new Ext.Viewport({
+        layout: 'border',
+        id: 'principal',
+        monitorResize :true,
+        frame: false,
+        renderTo: 'contenido',
+        items: [{
+        
+            xtype: 'box',
+            id: 'header',
+            region: 'north',
+            html: '<h1> Sistema de Produccion y Control de Inventario --- TRAILER GROUP</h1>',
+            height: 30
+        
+        },tree_equipos,panel_centro,panel_pie]
+    });
+
+
+   function mostrarTab(nombre, titulo,n){
+
+        if(titulo==null)
+            titulo=nombre;
+     
+        
+        var open = !Ext.getCmp(titulo);
+       
+        if(open){//Con esto funciona en Explorer y en Firefox
+        //if(!tab || (Ext.isIE && open)){
+        //if(open){
+           if(Ext.util.Format.substr(n.get('cls'),0,3) == 'App')
+            {
+             var ban = '';
+                var principal = Ext.create(n.get('cls'),{view : ban});
+                    tab = new Ext.Panel({
+                        contentEl:nombre,
+                        id:titulo,
+                        autoHeigth:true,
+                        autoWidht:true,
+                        title: titulo,
+                        autoScroll:true,
+                        iconCls: n.get('iconCls'),
+                        viewConfig: {
+                        forceFit: true
+                        },
+                        items : principal,
+                        //                autoLoad:'page.html'
+                        //                autoLoad:{url:+n.get('id'),scripts:true, params: 'foo=bar&wtf=1'},
+                        closable:true,
+            //                    html : '<iframe name="'+n.get('id')+'frame" src="'+n.get('id')+'" frameborder="0" width=100% height="100%" scrolling="yes"></iframe>'
+                
+                    });
+            }
+            else{
+                    tab = new Ext.Panel({
+                        contentEl:nombre,
+                        id:titulo,
+                        autoHeigth:true,
+                        autoWidht:true,
+                        title: titulo,
+                        autoScroll:true,
+                        iconCls: n.get('iconCls'),
+                        //iconCls: n.get('id'),
+                        viewConfig: {
+                            forceFit: true
+                        },
+                        //autoLoad:{url:nombre,scripts:true, params: 'foo=bar&wtf=1'},
+                        closable:true,
+                        html : '<iframe name="'+n.get('id')+'frame" src="'+n.get('id')+'" frameborder="0" width=100% height="100%" scrolling="yes"></iframe>'
+
+                    });
+            }
+            
+            panel_centro.add(tab);
+            
+            tab.show();
+            // tab.doLayout();
+            return;
+        }
+
+        tab = panel_centro.setActiveTab(titulo);
+        tab.show();
+        return;
+    }
+    
+    function mostrarTabAdmin(nombre, titulo,direccion){
+
+       if(titulo==null)
+            titulo=nombre;
+        //Variable para saber si el tab esta abierto
+        
+        var open = !Ext.getCmp(titulo);
+       
+        if(open){//Con esto funciona en Explorer y en Firefox
+        //if(!tab || (Ext.isIE && open)){
+        //if(open){
+           
+            tab = new Ext.Panel({
+                contentEl:nombre,
+                id: titulo,
+                autoHeigth:true,
+                autoWidht:true,
+                title: titulo,
+                autoScroll:true,
+                iconCls: direccion,
+                viewConfig: {
+                    forceFit: true
+                },
+                //autoLoad:{url:nombre,scripts:true, params: 'foo=bar&wtf=1'},
+                closable:true,
+               html : '<iframe name="'+direccion+'frame" src="'+direccion+'" frameborder="0" width=100% height="100%" scrolling="yes"></iframe>'
+
+            });
+            
+            panel_centro.add(tab);
+            
+            tab.show();
+            // tab.doLayout();
+            return;
+        }
+
+        tab = panel_centro.setActiveTab(titulo);
+        tab.show();
+        return;
+    }
+
+var updateClock = function () {
+                  Ext.fly('clock').update(Ext.Date.format(new Date(), 'g:i:s A'));
+            }
+		
+		//var runner = new Ext.util.TaskRunner();
+var runner = new Ext.util.TaskRunner();
+ var task = runner.newTask({
+     run: updateClock ,
+     interval: 1000
+ });
+
+ task.start(); 
+</script>
+@{
+    ViewBag.Title = "Index";
+}

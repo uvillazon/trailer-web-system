@@ -1,0 +1,26 @@
+﻿Ext.define("App.Ingresos.Model.Ingresos", {
+    extend: "Ext.data.Model",
+    fields: [
+        { name: 'ID_INGRESO', type: 'int' },
+        { name: 'NRO_INGRESO', type: 'int' },
+        { name: 'IMPORTE_TOTAL', type: 'float' },
+        { name: 'PROVEEDOR', type: 'string' },
+        { name: 'RESPONSABLE', type: 'string' },
+        { name: 'DOCUMENTO', type: 'string' },
+        { name: 'NRO_DOCUMENTO', type: 'string' },
+        { name: 'CARACTERISTICA', type: 'string' },
+        { name: 'COMENTARIO', type: 'string' },
+        { name: 'TIPO_INGRESO', type: 'string' },
+        { name: 'TOTAL_CANCELADO', type: 'float' },
+        { name: 'ESTADO', type: 'string' },
+        { name: 'FECHA_REG', type: 'date', dateFormat: 'd-m-Y', convert: convertDate },
+        { name: 'FECHA_INGRESO', type: 'date', dateFormat: 'd-m-Y', convert: convertDate },
+        { name: 'TOTAL', type: 'float' },
+        { name: 'TOTAL_ADEUDADO', type: 'float' },
+        { name: 'TOTAL_CANCELADO', type: 'float' },
+        { name: 'TOTAL_CANT', type: 'float' },
+        { name: 'ID_ORDEN_PRODUCCION', type: 'int' },
+        { name: 'NRO_ORDEN', type: 'string' },
+        { name: 'IMAGEN', convert: ConvertImagen },
+    ]
+});
