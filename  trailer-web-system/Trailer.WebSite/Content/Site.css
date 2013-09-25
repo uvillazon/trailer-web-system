@@ -1,0 +1,167 @@
+﻿/*----------------------------------------------------------
+The base color for this template is #5c87b2. If you'd like
+to use a different color start by replacing all instances of
+#5c87b2 with your new color.
+----------------------------------------------------------*/
+
+/* TAB MENU   
+----------------------------------------------------------*/
+#Cabecera {
+
+   float:left;
+   width:50%;
+
+}
+
+#header {
+    background: #7F99BE url(Iconos/layout-browser-hd-bg.gif) repeat-x center;
+}
+#header h1 {
+    font-size: 16px;
+    color: #fff;
+    font-weight: bold;
+    padding: 5px 10px;
+}
+
+ul#menu 
+{
+    float:left;
+    border-bottom: 1px #5C87B2 solid;
+    padding: 0 0 2px;
+    position: relative;
+    margin: 0;
+    text-align: right;
+    width:50%;
+}
+
+ul#menu li {
+    display: inline;
+    list-style: none;
+}
+
+ul#menu li#greeting {
+    padding: 10px 20px;
+    font-weight: bold;
+    text-decoration: none;
+    line-height: 2.8em;
+    color: #fff;
+}
+
+ul#menu li a {
+    padding: 10px 20px;
+    font-weight: bold;
+    text-decoration: none;
+    line-height: 2.8em;
+    background-color: #e8eef4;
+    color: #034af3;
+    border-radius: 4px 4px 0 0;
+    -webkit-border-radius: 4px 4px 0 0;
+    -moz-border-radius: 4px 4px 0 0;
+}
+
+ul#menu li a:hover {
+    background-color: #fff;
+    text-decoration: none;
+}
+
+ul#menu li a:active {
+    background-color: #a6e2a6;
+    text-decoration: none;
+}
+
+ul#menu li.selected a {
+    background-color: #fff;
+    color: #000;
+}
+
+/*
+Iconos del sistema en extjs
+*/
+
+.x-icon-menu-Transformador{
+ 	background-image:url('Iconos/asistencia.png')!important;
+	background-repeat: no-repeat;
+}
+.x-icon-menu-horario{
+ 	background-image:url('Iconos/horario.png')!important;
+	background-repeat: no-repeat;
+}
+.x-icon-menu-usuario{
+ 	background-image:url('Iconos/usuario.png')!important;
+	background-repeat: no-repeat;
+}
+.x-icon-menu-cuenta-corriente{
+ 	background-image:url('Iconos/cuenta.png')!important;
+	background-repeat: no-repeat;
+}
+
+.x-icon-calendario{
+ 	background-image:url('Iconos/calendar-list.png')!important;
+	background-repeat: no-repeat;
+}
+.x-icon-cerrar-session{
+ 	background-image:url('Iconos/cross.png')!important;
+	background-repeat: no-repeat;
+}
+
+.REDD
+{
+    background-color:Fuchsia;
+    color : Green;
+    
+}
+.rowColor{
+    color:red;
+}
+.rowVerde{
+    color:Green;
+}
+.rowNegro{
+    color:black;
+    font-weight:bold;
+}
+.REDD input
+{
+    background-color:Blue;
+    background:Blue;
+    text-decoration:underline;
+}
+.DisabledClase 
+{
+    color :Black;
+   }
+.DisabledClase input
+{
+    background:#FFFECB;
+   
+}
+.DisabledClaseTotal 
+{
+    color :Black;
+   }
+.DisabledClaseTotal input
+{
+    background:#FFFECB;
+    font-weight:bold;
+    font-size : larger;
+    border: 1px solid #04408C;
+}
+
+
+.DisabledClase textarea
+{
+    background:#FFFECB;
+}
+.DisabledClase1 
+{
+    color :Black;
+   }
+.DisabledClase1 input
+{
+    font-weight:bold;
+    border: 1px solid #04408C;
+}
+.DisabledClase1 input:hover {
+    border: 2px solid #04408C;
+    background: #FFFECB;
+}

@@ -1,0 +1,27 @@
+﻿Ext.define("App.Productos.Model.Productos", {
+    extend: "Ext.data.Model",
+    fields: [
+        { name: 'ID_PRODUCTO', type: 'int' },
+        { name: 'ID_IMAGEN', type: 'int' },
+         { name: 'ID_ORDEN_PRODUCCION', type: 'int' },
+        { name: 'NRO_ORDEN', type: 'int' },
+        { name: 'UNIDAD', type: 'string' },
+         { name: 'CLIENTE', type: 'string' },
+        { name: 'CANTIDAD_DISP', type: 'float' },
+         { name: 'INVENTARIO', type: 'float' },
+        { name: 'TELA', type: 'string' },
+        { name: 'ARTICULO', type: 'string' },
+        { name: 'TELA', type: 'string' },
+        { name: 'COLOR', type: 'string' },
+        { name: 'DETALLE_ITEM', type: 'string' },
+        { name: 'DETALLE_BORDADO', type: 'string' },
+        { name: 'DETALLE_COSTURA', type: 'string' },
+        { name: 'ESTADO', type: 'string' },
+        { name: 'CANTIDAD', type: 'float' },
+        { name: 'TALLA', type: 'string' },
+        { name: 'COSTO', type: 'float' },
+        { name: 'TOTAL', type: 'float' },
+        { name: 'ESTADO', type: 'string' },
+        { name: 'FECHA_REG', type: 'date', dateFormat: 'd-m-Y', convert: convertDate },
+    ]
+});

@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "Pagos Credito";
+}
+<script type="text/javascript">
+    Ext.Loader.setConfig({ enabled: true });
+    Ext.Loader.setPath('App', '../App');
+    Ext.require([
+    'App.*'
+   ]);
+    Ext.onReady(function () {
+        Ext.QuickTips.init();
+        var principaPagoCredito = Ext.create("App.PagosCredito.View.Principal");
+
+        var gvport = Ext.create("App.Utils.MainPanel", {
+            defaults: { autoScroll: true },
+            items: [principaPagoCredito]
+            //            //            grid, form
+            //        ]
+            //    items: item
+        });
+        function hola() {
+            alert('asdasda');
+        }
+    });
+</script>

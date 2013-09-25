@@ -1,0 +1,45 @@
+﻿@{
+    ViewBag.Title = "Index Configuraciones";
+}
+<script type="text/javascript">
+    Ext.Loader.setConfig({ enabled: true });
+    Ext.Loader.setPath('App', '../App');
+    Ext.require([
+    'App.*'
+   ]);
+    Ext.onReady(function () {
+        Ext.QuickTips.init();
+        var principalLista = Ext.create("App.Listas.View.Principal");
+        var principalClientes = Ext.create("App.Clientes.View.Principal");
+        var principalEmpresas = Ext.create("App.Empresas.View.Principal");
+        var principalProveedores = Ext.create("App.Proveedores.View.Principal");
+        var principalEmpleados = Ext.create("App.Empleados.View.Principal");
+        var tabpanel = Ext.create('App.Utils.TabPanel', {
+
+            padding: 0,
+            items: [
+                principalLista,
+                principalClientes,
+                principalEmpresas,
+                principalProveedores,
+                principalEmpleados
+        ]
+        });
+//        tabpanel.items.each(function (tab) {
+//            tab.on('activate', function (panel) {
+//                tab.Recargar();
+//            });
+//        });
+        //tabpanel.on('tabselect', hola);
+        var gvport = Ext.create("App.Utils.MainPanel", {
+            defaults: { autoScroll: true },
+            items: [tabpanel]
+            //            //            grid, form
+            //        ]
+            //    items: item
+        });
+        function hola() {
+            alert('asdasda');
+        }
+    });
+</script>

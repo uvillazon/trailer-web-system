@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0FC7D2EB-2E67-4538-960B-63AA40016271}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Trailer.Services</RootNamespace>
+    <AssemblyName>Trailer.Services</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseService.cs" />
+    <Compile Include="ClientesService.cs" />
+    <Compile Include="BordadosService.cs" />
+    <Compile Include="ArticulosService.cs" />
+    <Compile Include="FacturasService.cs" />
+    <Compile Include="RecibosService.cs" />
+    <Compile Include="DesignacionesService.cs" />
+    <Compile Include="DetallesSalidaService.cs" />
+    <Compile Include="MoldesService.cs" />
+    <Compile Include="CortesService.cs" />
+    <Compile Include="PagosCreditoService.cs" />
+    <Compile Include="ProductosService.cs" />
+    <Compile Include="EntregasService.cs" />
+    <Compile Include="ReportesService.cs" />
+    <Compile Include="SalidasService.cs" />
+    <Compile Include="OrdenesProduccionService.cs" />
+    <Compile Include="IngresosService.cs" />
+    <Compile Include="MateriasPrimaService.cs" />
+    <Compile Include="ImagenesService.cs" />
+    <Compile Include="EmpleadosService.cs" />
+    <Compile Include="ProveedoresService.cs" />
+    <Compile Include="ResponsablesService.cs" />
+    <Compile Include="EmpresasService.cs" />
+    <Compile Include="ListasService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Trailer.Business\Trailer.Business.csproj">
+      <Project>{B7657138-2E81-4F46-AE4E-34C5B682FFA1}</Project>
+      <Name>Trailer.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Trailer.Common.Data\Trailer.Common.Data.csproj">
+      <Project>{4970B4DE-E707-432C-9667-A5E88E977CF1}</Project>
+      <Name>Trailer.Common.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Trailer.Common\Trailer.Common.csproj">
+      <Project>{70F9C23E-501D-41E9-8354-D5DEE8C899F3}</Project>
+      <Name>Trailer.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Trailer.Model\Trailer.Model.csproj">
+      <Project>{7AB3364E-0354-48CD-A3D5-2DB474BB7A3F}</Project>
+      <Name>Trailer.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
